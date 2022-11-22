@@ -7,7 +7,7 @@ export const Subheading = ({ children }) => {
 
 const SubTitle = styled.h2`
   font-size: 1.6rem;
-  font-weight: 800;
+  font-weight: 600;
   text-transform: uppercase;
   margin-bottom: 1rem;
 `;

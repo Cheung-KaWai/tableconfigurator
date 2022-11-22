@@ -10,4 +10,6 @@ const Container = styled.div`
   min-height: 100vh;
   padding: 3rem;
   border-left: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
 `;

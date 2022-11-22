@@ -7,6 +7,7 @@ export const TableContextProvider = ({ children }) => {
   const [length, setLength] = useState(2);
 
   const [step, setStep] = useState(1);
+  const [tableTexture, setTableTexture] = useState("check");
 
   const elements = {
     width,
@@ -15,6 +16,8 @@ export const TableContextProvider = ({ children }) => {
     setLength,
     step,
     setStep,
+    setTableTexture,
+    tableTexture,
   };
 
   return <TableContext.Provider value={elements}>{children}</TableContext.Provider>;

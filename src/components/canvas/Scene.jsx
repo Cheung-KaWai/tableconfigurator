@@ -10,7 +10,7 @@ export const Scene = () => {
       <Canvas shadows>
         <OrbitControls makeDefault />
         {/* <color attach="background" args={["#70777F"]} /> */}
-        <Stage adjustCamera={3}>
+        <Stage adjustCamera={false}>
           <Square1 />
         </Stage>
       </Canvas>

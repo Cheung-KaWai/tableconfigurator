@@ -4,7 +4,7 @@ export const TableContext = createContext();
 
 export const TableContextProvider = ({ children }) => {
   const [width, setWidth] = useState(0.9);
-  const [length, setLength] = useState(1.6);
+  const [length, setLength] = useState(2);
 
   const elements = {
     width,

@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+import { textures } from "../assets/js/textures";
 
 export const TableContext = createContext();
 
@@ -7,7 +8,7 @@ export const TableContextProvider = ({ children }) => {
   const [length, setLength] = useState(2);
 
   const [step, setStep] = useState(1);
-  const [tableTexture, setTableTexture] = useState("check");
+  const [tableTexture, setTableTexture] = useState("wood1");
 
   const elements = {
     width,

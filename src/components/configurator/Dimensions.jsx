@@ -76,6 +76,12 @@ const Select = styled.select`
   font-weight: 500;
   outline-width: 2px;
   outline-color: #212529;
+
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-out;
+  &:hover {
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+  }
 `;
 
 const Option = styled.option``;

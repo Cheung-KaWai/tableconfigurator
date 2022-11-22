@@ -36,18 +36,16 @@ export function Square1(props) {
     roughnessMap: roughness,
     roughness: 1,
     metalness: 0,
-    envMapIntensity: 0.9,
   });
 
   const { nodes, materials } = useGLTF(square1);
   return (
     <group {...props} dispose={null}>
       <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Cube.geometry}
+        geometry={nodes.Table1.geometry}
         material={material}
         scale={[context.length, 1, context.width]}
+        position={[0, 1.63, 0]}
       />
     </group>
   );

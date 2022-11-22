@@ -43,8 +43,9 @@ export const Dimensions = () => {
         <Subheading>width</Subheading>
         <SectionParameters>
           <Select defaultValue={0.9} onChange={handleWidth}>
-            <Option value={0.8}>80 cm</Option>
+            <Option value={0.85}>85 cm</Option>
             <Option value={0.9}>90 cm</Option>
+            <Option value={0.95}>95 cm</Option>
           </Select>
         </SectionParameters>
       </SectionContainer>

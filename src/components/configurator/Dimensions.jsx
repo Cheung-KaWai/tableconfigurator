@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { TableContext } from "../../context/TableContextProvider";
+import { ConfigTitle } from "./ConfigTitle";
+import { Subheading } from "./Subheading";
 
 export const Dimensions = () => {
   const context = useContext(TableContext);
@@ -12,50 +14,68 @@ export const Dimensions = () => {
     context.setLength(value);
   };
 
+  const handleWidth = (ev) => {
+    const value = ev.target.value;
+    if (!value) return;
+
+    context.setWidth(value);
+  };
+
   return (
-    <SectionContainer onClick={handleLength}>
-      <Button value={1.6} length={context.length}>
-        160cm
-      </Button>
-      <Button value={1.8} length={context.length}>
-        180cm
-      </Button>
-      <Button value={2} length={context.length}>
-        200cm
-      </Button>
-      <Button value={2.2} length={context.length}>
-        220cm
-      </Button>
-      <Button value={2.4} length={context.length}>
-        240cm
-      </Button>
-      <Button value={2.6} length={context.length}>
-        260cm
-      </Button>
-      <Button value={2.8} length={context.length}>
-        280cm
-      </Button>
-      <Button value={3} length={context.length}>
-        300cm
-      </Button>
-    </SectionContainer>
+    <>
+      <ConfigTitle>1. table dimensions</ConfigTitle>
+      <SectionContainer>
+        <Subheading>length</Subheading>
+        <SectionParameters>
+          <Select defaultValue={2} onChange={handleLength}>
+            <Option value={1.6}>160 cm</Option>
+            <Option value={1.8}>180 cm</Option>
+            <Option value={2}>200 cm</Option>
+            <Option value={2.2}>220 cm</Option>
+            <Option value={2.4}>240 cm</Option>
+            <Option value={2.6}>260 cm</Option>
+            <Option value={2.8}>280 cm</Option>
+            <Option value={3}>300 cm</Option>
+          </Select>
+        </SectionParameters>
+      </SectionContainer>
+      <SectionContainer>
+        <Subheading>width</Subheading>
+        <SectionParameters>
+          <Select defaultValue={0.9} onChange={handleWidth}>
+            <Option value={0.8}>80 cm</Option>
+            <Option value={0.9}>90 cm</Option>
+          </Select>
+        </SectionParameters>
+      </SectionContainer>
+    </>
   );
 };
 
 const SectionContainer = styled.div`
+  margin-bottom: 3rem;
+`;
+
+const SectionParameters = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 `;
 
-const Button = styled.button`
-  height: 3rem;
-  padding: 0 1.5rem;
-  border: none;
-  font-size: 1.4rem;
-  font-weight: 600;
-  border-radius: 0.3rem;
-  background-color: ${(props) => (props.length == props.value ? "#bac8ff" : "#fff")};
+const Select = styled.select`
+  all: unset;
+  box-sizing: border-box;
   cursor: pointer;
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  transition: all 0.3s ease-out;
+  outline: 1px solid transparent;
+  border-radius: 3px;
   color: #212529;
+  font-weight: 500;
+  outline-width: 2px;
+  outline-color: #212529;
 `;
+
+const Option = styled.option``;

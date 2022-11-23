@@ -3,8 +3,11 @@ import styled from "styled-components";
 import { TableContext } from "../../context/TableContextProvider";
 import { ConfigTitle } from "./ConfigTitle";
 import { Subheading } from "./Subheading";
+import edge1 from "../../assets/images/edge1.jpg";
+import edge2 from "../../assets/images/edge2.jpg";
+import edge3 from "../../assets/images/edge3.jpg";
 
-export const Dimensions = () => {
+export const Shape = () => {
   const context = useContext(TableContext);
 
   const handleLength = (ev) => {
@@ -21,9 +24,14 @@ export const Dimensions = () => {
     context.setWidth(value);
   };
 
+  const handleEdge = (edge) => {
+    context.setCurrentEdge(edge);
+  };
+
   return (
     <>
-      <ConfigTitle>1. table dimensions</ConfigTitle>
+      <ConfigTitle>1. table shape</ConfigTitle>
+
       <SectionContainer>
         <Subheading>length</Subheading>
         <SectionParameters>
@@ -48,6 +56,14 @@ export const Dimensions = () => {
             <Option value={0.95}>95 cm</Option>
           </Select>
         </SectionParameters>
+      </SectionContainer>
+      <SectionContainer>
+        <Subheading>Edge finish</Subheading>
+        <ImagesContainer>
+          <Image src={edge1} selected={context.currentEdge === "edge1"} onClick={() => handleEdge("edge1")} />
+          <Image src={edge2} selected={context.currentEdge === "edge2"} onClick={() => handleEdge("edge2")} />
+          <Image src={edge3} selected={context.currentEdge === "edge3"} onClick={() => handleEdge("edge3")} />
+        </ImagesContainer>
       </SectionContainer>
     </>
   );
@@ -86,3 +102,19 @@ const Select = styled.select`
 `;
 
 const Option = styled.option``;
+
+const ImagesContainer = styled.div`
+  display: flex;
+  gap: 2rem;
+`;
+
+const Image = styled.img`
+  cursor: pointer;
+  border: 2px solid #212529;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, ${(props) => (props.selected == true ? 0.1 : 0)});
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-out;
+  &:hover {
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+  }
+`;

@@ -19,8 +19,8 @@ export const Legs = () => {
     case "leg1":
       return (
         <>
-          <Leg1 position={[length - 0.2, 0, 0]} material={material} />
-          <Leg1 position={[-length + 0.2, 0, 0]} material={material} />
+          <Leg1 position={[length / 2 - 0.1, 0, 0]} material={material} />
+          <Leg1 position={[-length / 2 + 0.1, 0, 0]} material={material} />
         </>
       );
   }

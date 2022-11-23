@@ -37,5 +37,5 @@ const ImageTexture = styled.img`
 
 const ImageContainers = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
 `;

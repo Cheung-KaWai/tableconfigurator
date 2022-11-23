@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { TableContext } from "../../context/TableContextProvider";
 import { ConfiguratorContainer } from "../layouts/ConfiguratorContainer";
-import { Dimensions } from "./Dimensions";
+import { Shape } from "./Shape";
 import { LegsMaterial } from "./LegsMaterial";
 import { LegsModel } from "./LegsModel";
 import { Navigation } from "./Navigation";
@@ -13,7 +13,7 @@ export const Configurator = () => {
   const handleStep = () => {
     switch (context.step) {
       case 1:
-        return <Dimensions />;
+        return <Shape />;
       case 2:
         return <TableMaterial />;
       case 3:

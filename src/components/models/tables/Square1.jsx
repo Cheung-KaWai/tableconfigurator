@@ -1,9 +1,6 @@
 import React, { useContext } from "react";
 import { useGLTF } from "@react-three/drei";
-import square1 from "../../assets/models/square1.glb";
-import { TableContext } from "../../context/TableContextProvider";
-import { MeshStandardMaterial } from "three";
-import { textures } from "../../assets/js/textures";
+import square1 from "../../../assets/models/square1.glb";
 
 export function Square1({ material, width, length }) {
   const { nodes } = useGLTF(square1);

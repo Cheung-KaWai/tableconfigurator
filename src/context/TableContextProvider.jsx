@@ -8,9 +8,12 @@ export const TableContextProvider = ({ children }) => {
   const [length, setLength] = useState(2);
 
   const [currentTable, setcurrentTable] = useState("square1");
+  const [tableTexture, setTableTexture] = useState("Wood1");
+
+  const [currentLeg, setCurrentLeg] = useState("leg1");
+  const [legTexture, setLegTexture] = useState("Metal1");
 
   const [step, setStep] = useState(1);
-  const [tableTexture, setTableTexture] = useState("Wood1");
 
   const elements = {
     width,
@@ -23,6 +26,10 @@ export const TableContextProvider = ({ children }) => {
     tableTexture,
     setcurrentTable,
     currentTable,
+    setCurrentLeg,
+    currentLeg,
+    setLegTexture,
+    legTexture,
   };
 
   return <TableContext.Provider value={elements}>{children}</TableContext.Provider>;

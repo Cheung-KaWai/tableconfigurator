@@ -22,6 +22,18 @@ import roughness4 from "../textures/legs/metal1/Metal028_2K_Roughness.jpg";
 import metalness4 from "../textures/legs/metal1/Metal028_2K_Metalness.jpg";
 import preview4 from "../textures/legs/metal1/Metal028_PREVIEW.jpg";
 
+import map5 from "../textures/legs/metal2/Metal030_2K_Color.jpg";
+import normal5 from "../textures/legs/metal2/Metal030_2K_NormalDX.jpg";
+import roughness5 from "../textures/legs/metal2/Metal030_2K_Roughness.jpg";
+import metalness5 from "../textures/legs/metal2/Metal030_2K_Metalness.jpg";
+import preview5 from "../textures/legs/metal2/Metal030_PREVIEW.jpg";
+
+import map6 from "../textures/legs/metal3/Metal011_2K_Color.jpg";
+import normal6 from "../textures/legs/metal3/Metal011_2K_NormalDX.jpg";
+import roughness6 from "../textures/legs/metal3/Metal011_2K_Roughness.jpg";
+import metalness6 from "../textures/legs/metal3/Metal011_2K_Metalness.jpg";
+import preview6 from "../textures/legs/metal3/Metal011_PREVIEW.jpg";
+
 import { useTexture } from "@react-three/drei";
 import { RepeatWrapping, sRGBEncoding } from "three";
 
@@ -80,7 +92,7 @@ const Wood3 = (width, height) => {
 };
 
 const Metal1 = (width, height) => {
-  const [map, normalMap, roughnessMap, metalnessMap] = useTexture([map3, normal3, roughness3, metalness4]);
+  const [map, normalMap, roughnessMap, metalnessMap] = useTexture([map4, normal4, roughness4, metalness4]);
   fixTexture(map, width, height);
   fixTexture(normalMap, width, height);
   fixTexture(roughnessMap, width, height);
@@ -91,6 +103,46 @@ const Metal1 = (width, height) => {
     normalMap,
     roughnessMap,
     metalnessMap,
+    metalness: 1,
+    roughness: 0,
+  };
+
+  return metal;
+};
+
+const Metal2 = (width, height) => {
+  const [map, normalMap, roughnessMap, metalnessMap] = useTexture([map5, normal5, roughness5, metalness5]);
+  fixTexture(map, width, height);
+  fixTexture(normalMap, width, height);
+  fixTexture(roughnessMap, width, height);
+  fixTexture(metalnessMap, width, height);
+
+  const metal = {
+    map,
+    normalMap,
+    roughnessMap,
+    metalnessMap,
+    metalness: 1,
+    roughness: 0,
+  };
+
+  return metal;
+};
+
+const Metal3 = (width, height) => {
+  const [map, normalMap, roughnessMap, metalnessMap] = useTexture([map6, normal6, roughness6, metalness6]);
+  fixTexture(map, width, height);
+  fixTexture(normalMap, width, height);
+  fixTexture(roughnessMap, width, height);
+  fixTexture(metalnessMap, width, height);
+
+  const metal = {
+    map,
+    normalMap,
+    roughnessMap,
+    metalnessMap,
+    metalness: 1,
+    roughness: 0,
   };
 
   return metal;
@@ -101,12 +153,16 @@ const previews = {
   wood2: preview2,
   wood3: preview3,
   metal1: preview4,
+  metal2: preview5,
+  metal3: preview6,
 };
 
 export const textures = {
+  previews,
   Wood1,
   Wood2,
   Wood3,
-  previews,
   Metal1,
+  Metal2,
+  Metal3,
 };

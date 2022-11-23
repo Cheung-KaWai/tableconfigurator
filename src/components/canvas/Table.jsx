@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { MeshStandardMaterial } from "three";
 import { textures } from "../../assets/js/textures";
 import { TableContext } from "../../context/TableContextProvider";
-import { Square1 } from "../models/Square1";
+import { Square1 } from "../models/tables/Square1";
 
 export const Table = () => {
   const context = useContext(TableContext);

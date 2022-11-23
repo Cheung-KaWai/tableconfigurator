@@ -3,6 +3,7 @@ import { MeshStandardMaterial } from "three";
 import { textures } from "../../assets/js/textures";
 import { TableContext } from "../../context/TableContextProvider";
 import { Leg1 } from "../models/legs/Leg1";
+import { Leg2 } from "../models/legs/Leg2";
 
 export const Legs = () => {
   const context = useContext(TableContext);
@@ -21,6 +22,13 @@ export const Legs = () => {
         <>
           <Leg1 position={[length / 2 - 0.1, 0, 0]} material={material} />
           <Leg1 position={[-length / 2 + 0.1, 0, 0]} material={material} />
+        </>
+      );
+    case "leg2":
+      return (
+        <>
+          <Leg2 position={[length / 2 - 0.1, 0, 0]} material={material} />
+          <Leg2 position={[-length / 2 + 0.1, 0, 0]} material={material} />
         </>
       );
   }

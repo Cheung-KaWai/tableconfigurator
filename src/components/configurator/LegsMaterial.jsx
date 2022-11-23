@@ -15,9 +15,21 @@ export const LegsMaterial = () => {
     <>
       <ConfigTitle>4. Legs material</ConfigTitle>
       <ImageContainers>
-        <ImageTexture src={textures.previews.metal1} onClick={() => handleTexture("Metal1")} />
-        <ImageTexture src={textures.previews.metal2} onClick={() => handleTexture("Metal2")} />
-        <ImageTexture src={textures.previews.metal3} onClick={() => handleTexture("Metal3")} />
+        <ImageTexture
+          src={textures.previews.metal1}
+          selected={context.legTexture === "Metal1"}
+          onClick={() => handleTexture("Metal1")}
+        />
+        <ImageTexture
+          src={textures.previews.metal2}
+          selected={context.legTexture === "Metal2"}
+          onClick={() => handleTexture("Metal2")}
+        />
+        <ImageTexture
+          src={textures.previews.metal3}
+          selected={context.legTexture === "Metal3"}
+          onClick={() => handleTexture("Metal3")}
+        />
       </ImageContainers>
     </>
   );
@@ -28,7 +40,7 @@ const ImageTexture = styled.img`
   height: 7rem;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, ${(props) => (props.selected == true ? 0.1 : 0)});
   transition: all 0.2s ease-out;
   &:hover {
     box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);

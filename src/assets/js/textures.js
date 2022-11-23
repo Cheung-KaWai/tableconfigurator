@@ -16,31 +16,97 @@ import normal3 from "../textures/tables/wood3/Wood006_2K_NormalDX.jpg";
 import roughness3 from "../textures/tables/wood3/Wood006_2K_Roughness.jpg";
 import preview3 from "../textures/tables/wood3/Wood006_PREVIEW.jpg";
 
-const wood1 = {
-  map: map1,
-  normal: normal1,
-  roughness: roughness1,
-  preview: preview1,
+import map4 from "../textures/legs/metal1/Metal028_2K_Color.jpg";
+import normal4 from "../textures/legs/metal1/Metal028_2K_NormalDX.jpg";
+import roughness4 from "../textures/legs/metal1/Metal028_2K_Roughness.jpg";
+import metalness4 from "../textures/legs/metal1/Metal028_2K_Metalness.jpg";
+import preview4 from "../textures/legs/metal1/Metal028_PREVIEW.jpg";
+
+import { useTexture } from "@react-three/drei";
+import { RepeatWrapping, sRGBEncoding } from "three";
+
+const fixTexture = (texture, width, height) => {
+  texture.flipY = false;
+  texture.repeat.y = width;
+  texture.repeat.x = height;
+  texture.wrapS = RepeatWrapping;
+  texture.wrapT = RepeatWrapping;
+  texture.encoding = sRGBEncoding;
 };
 
-const wood2 = {
-  map: map2,
-  normal: normal2,
-  roughness: roughness2,
-  preview: preview2,
+const Wood1 = (width, height) => {
+  const [map, normalMap, roughnessMap] = useTexture([map1, normal1, roughness1]);
+  fixTexture(map, width, height);
+  fixTexture(normalMap, width, height);
+  fixTexture(roughnessMap, width, height);
+
+  const wood = {
+    map,
+    normalMap,
+    roughnessMap,
+  };
+
+  return wood;
 };
 
-const wood3 = {
-  map: map3,
-  normal: normal3,
-  roughness: roughness3,
-  preview: preview3,
+const Wood2 = (width, height) => {
+  const [map, normalMap, roughnessMap] = useTexture([map2, normal2, roughness2]);
+  fixTexture(map, width, height);
+  fixTexture(normalMap, width, height);
+  fixTexture(roughnessMap, width, height);
+
+  const wood = {
+    map,
+    normalMap,
+    roughnessMap,
+  };
+
+  return wood;
+};
+
+const Wood3 = (width, height) => {
+  const [map, normalMap, roughnessMap] = useTexture([map3, normal3, roughness3]);
+  fixTexture(map, width, height);
+  fixTexture(normalMap, width, height);
+  fixTexture(roughnessMap, width, height);
+
+  const wood = {
+    map,
+    normalMap,
+    roughnessMap,
+  };
+
+  return wood;
+};
+
+const Metal1 = (width, height) => {
+  const [map, normalMap, roughnessMap, metalnessMap] = useTexture([map3, normal3, roughness3, metalness4]);
+  fixTexture(map, width, height);
+  fixTexture(normalMap, width, height);
+  fixTexture(roughnessMap, width, height);
+  fixTexture(metalnessMap, width, height);
+
+  const metal = {
+    map,
+    normalMap,
+    roughnessMap,
+    metalnessMap,
+  };
+
+  return metal;
+};
+
+const previews = {
+  wood1: preview1,
+  wood2: preview2,
+  wood3: preview3,
+  metal1: preview4,
 };
 
 export const textures = {
-  check,
-  check2,
-  wood1,
-  wood2,
-  wood3,
+  Wood1,
+  Wood2,
+  Wood3,
+  previews,
+  Metal1,
 };

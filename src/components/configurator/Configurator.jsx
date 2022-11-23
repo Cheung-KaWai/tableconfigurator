@@ -2,8 +2,10 @@ import React, { useContext } from "react";
 import { TableContext } from "../../context/TableContextProvider";
 import { ConfiguratorContainer } from "../layouts/ConfiguratorContainer";
 import { Dimensions } from "./Dimensions";
+import { LegsMaterial } from "./LegsMaterial";
+import { LegsModel } from "./LegsModel";
 import { Navigation } from "./Navigation";
-import { TableTexture } from "./TableTexture";
+import { TableMaterial } from "./TableMaterial";
 
 export const Configurator = () => {
   const context = useContext(TableContext);
@@ -13,7 +15,11 @@ export const Configurator = () => {
       case 1:
         return <Dimensions />;
       case 2:
-        return <TableTexture />;
+        return <TableMaterial />;
+      case 3:
+        return <LegsModel />;
+      case 4:
+        return <LegsMaterial />;
     }
   };
 

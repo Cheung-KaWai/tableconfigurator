@@ -111,10 +111,10 @@ const Select = styled.select`
   outline-width: 2px;
   outline-color: #212529;
 
-  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 0 0 rgba(66, 96, 122, 0.3);
   transition: all 0.2s ease-out;
   &:hover {
-    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px 5px rgba(66, 96, 122, 0.3);
   }
 `;
 
@@ -128,10 +128,10 @@ const ImagesContainer = styled.div`
 const Image = styled.img`
   cursor: pointer;
   border: 2px solid #212529;
-  box-shadow: 0 0 10px 5px rgba(0, 0, 0, ${(props) => (props.selected == true ? 0.1 : 0)});
+  box-shadow: 0 0 10px 5px rgba(66, 96, 122, ${(props) => (props.selected == true ? 0.3 : 0)});
   border-radius: 0.5rem;
   transition: all 0.2s ease-out;
   &:hover {
-    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px 5px rgba(66, 96, 122, 0.3);
   }
 `;

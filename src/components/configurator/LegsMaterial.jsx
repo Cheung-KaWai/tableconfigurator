@@ -40,10 +40,10 @@ const ImageTexture = styled.img`
   height: 7rem;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 0 10px 10px rgba(0, 0, 0, ${(props) => (props.selected == true ? 0.1 : 0)});
+  box-shadow: 0 0 10px 5px rgba(66, 96, 122, ${(props) => (props.selected == true ? 0.3 : 0)});
   transition: all 0.2s ease-out;
   &:hover {
-    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px 5px rgba(66, 96, 122, 0.3);
   }
 `;
 

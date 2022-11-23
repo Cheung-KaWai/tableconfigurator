@@ -23,7 +23,6 @@ export const Navigation = () => {
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: auto;
 `;
 
 const ButtonBack = styled.button`

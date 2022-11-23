@@ -10,4 +10,5 @@ const Title = styled.h1`
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 5rem;
+  color: #42607a;
 `;

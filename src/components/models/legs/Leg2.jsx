@@ -15,7 +15,7 @@ export function Leg2({ position, material }) {
       <mesh
         geometry={nodes.Cube011.geometry}
         material={material}
-        position={[0, 0.38, 0]}
+        position={[0, 0.379, -0.0015]}
         rotation={[Math.PI, Math.PI / 2, 1.57]}
       />
       <mesh
@@ -27,7 +27,7 @@ export function Leg2({ position, material }) {
       <mesh
         geometry={nodes.Cube012.geometry}
         material={material}
-        position={[0, 0.01, 0]}
+        position={[0, 0.005, 0]}
         rotation={[Math.PI, Math.PI / 2, Math.PI]}
       />
     </group>

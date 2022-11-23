@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { MeshStandardMaterial } from "three";
 import { textures } from "../../assets/js/textures";
 import { TableContext } from "../../context/TableContextProvider";
+import { Outdoor } from "../models/tables/Outdoor";
 import { Square1 } from "../models/tables/Square1";
 import { Square2 } from "../models/tables/Square2";
 import { Square3 } from "../models/tables/Square3";
@@ -29,6 +30,9 @@ export const Table = () => {
       if (currentEdge === "edge3") {
         return <Square3 material={material} length={length} width={width} />;
       }
+    }
+    case "outdoor": {
+      return <Outdoor material={material} length={length} width={width} />;
     }
   }
 };

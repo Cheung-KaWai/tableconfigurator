@@ -14,8 +14,8 @@ export const Navigation = () => {
 
   return (
     <Container>
-      {context.step !== 1 && <Button onClick={handlePrevious}>Previous</Button>}
-      <Button onClick={handleNext}>Next</Button>
+      {context.step !== 1 && <ButtonBack onClick={handlePrevious}>Previous</ButtonBack>}
+      {context.step !== 4 && <ButtonNext onClick={handleNext}>Next</ButtonNext>}
     </Container>
   );
 };
@@ -26,7 +26,22 @@ const Container = styled.div`
   margin-top: auto;
 `;
 
-const Button = styled.button`
+const ButtonBack = styled.button`
+  all: unset;
+  display: block;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-transform: uppercase;
+  &:hover {
+    font-weight: 600;
+  }
+
+  &:last-child {
+    margin-right: auto;
+  }
+`;
+
+const ButtonNext = styled.button`
   all: unset;
   display: block;
   box-sizing: border-box;

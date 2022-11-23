@@ -6,6 +6,8 @@ import { Subheading } from "./Subheading";
 import edge1 from "../../assets/images/edge1.jpg";
 import edge2 from "../../assets/images/edge2.jpg";
 import edge3 from "../../assets/images/edge3.jpg";
+import table1 from "../../assets/images/table1.jpg";
+import table2 from "../../assets/images/table2.jpg";
 
 export const Shape = () => {
   const context = useContext(TableContext);
@@ -26,6 +28,10 @@ export const Shape = () => {
 
   const handleEdge = (edge) => {
     context.setCurrentEdge(edge);
+  };
+
+  const handleShape = (shape) => {
+    context.setcurrentTable(shape);
   };
 
   return (
@@ -58,11 +64,22 @@ export const Shape = () => {
         </SectionParameters>
       </SectionContainer>
       <SectionContainer>
+        <Subheading>Table Shape</Subheading>
+        <ImagesContainer>
+          <Image src={table1} selected={context.currentTable === "square"} onClick={() => handleShape("square")} />
+          <Image src={table2} selected={context.currentTable === "outdoor"} onClick={() => handleShape("outdoor")} />
+        </ImagesContainer>
+      </SectionContainer>
+      <SectionContainer>
         <Subheading>Edge finish</Subheading>
         <ImagesContainer>
           <Image src={edge1} selected={context.currentEdge === "edge1"} onClick={() => handleEdge("edge1")} />
-          <Image src={edge2} selected={context.currentEdge === "edge2"} onClick={() => handleEdge("edge2")} />
-          <Image src={edge3} selected={context.currentEdge === "edge3"} onClick={() => handleEdge("edge3")} />
+          {context.currentTable !== "outdoor" && (
+            <>
+              <Image src={edge2} selected={context.currentEdge === "edge2"} onClick={() => handleEdge("edge2")} />
+              <Image src={edge3} selected={context.currentEdge === "edge3"} onClick={() => handleEdge("edge3")} />
+            </>
+          )}
         </ImagesContainer>
       </SectionContainer>
     </>

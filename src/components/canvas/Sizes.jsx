@@ -10,24 +10,28 @@ export const Sizes = () => {
 
   return (
     <>
-      <Center position={[0, 0.81, -width / 2 - 0.05]} rotation={[-Math.PI / 2, 0, 0]}>
-        <Text3D scale={0.05} font={font}>
-          {length * 100 + "cm"}
-          <meshStandardMaterial color="#fff" envMapIntensity={0.5} />
-        </Text3D>
-      </Center>
-      <Center position={[-length / 2 - 0.05, 0.81, 0]} rotation={[-Math.PI / 2, 0, Math.PI / 2]}>
-        <Text3D scale={0.05} font={font}>
-          {width * 100 + "cm"}
-          <meshStandardMaterial color="#fff" envMapIntensity={0.3} />
-        </Text3D>
-      </Center>
-      <Center position={[length / 2 + 0.05, 0.4, 0]} rotation={[0, 0, -Math.PI / 2]}>
-        <Text3D scale={0.05} font={font}>
-          {80 + "cm"}
-          <meshStandardMaterial color="#fff" envMapIntensity={0.3} />
-        </Text3D>
-      </Center>
+      {context.showSize && (
+        <>
+          <Center position={[0, 0.81, -width / 2 - 0.05]} rotation={[-Math.PI / 2, 0, 0]}>
+            <Text3D scale={0.05} font={font}>
+              {length * 100 + "cm"}
+              <meshStandardMaterial color="#fff" envMapIntensity={0.5} />
+            </Text3D>
+          </Center>
+          <Center position={[-length / 2 - 0.05, 0.81, 0]} rotation={[-Math.PI / 2, 0, Math.PI / 2]}>
+            <Text3D scale={0.05} font={font}>
+              {width * 100 + "cm"}
+              <meshStandardMaterial color="#fff" envMapIntensity={0.3} />
+            </Text3D>
+          </Center>
+          <Center position={[length / 2 + 0.05, 0.4, 0]} rotation={[0, 0, -Math.PI / 2]}>
+            <Text3D scale={0.05} font={font}>
+              {80 + "cm"}
+              <meshStandardMaterial color="#fff" envMapIntensity={0.3} />
+            </Text3D>
+          </Center>
+        </>
+      )}
     </>
   );
 };

@@ -4,10 +4,12 @@ import { TableContext } from "../../context/TableContextProvider";
 
 export const Progress = () => {
   const context = useContext(TableContext);
+  const percentage = (100 / 4) * context.step;
+
   return (
     <Progresscontainer>
       <ProgressBar1 />
-      <ProgressBar2 step={context.step} />
+      <ProgressBar2 step={percentage} />
     </Progresscontainer>
   );
 };
@@ -29,7 +31,7 @@ const ProgressBar2 = styled.div`
   left: 0;
   top: 0;
   transition: all 0.2s ease-out;
-  width: calc(100% / 4 * ${(props) => props.step});
+  width: ${(props) => props.step + "%"};
   height: 0.5rem;
   background-color: #42607a;
   border-radius: 10px;

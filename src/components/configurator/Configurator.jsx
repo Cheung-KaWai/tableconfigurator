@@ -7,6 +7,7 @@ import { LegsModel } from "./LegsModel";
 import { Navigation } from "./Navigation";
 import { TableMaterial } from "./TableMaterial";
 import { Progress } from "./Progress";
+import { Options } from "./Options";
 
 export const Configurator = () => {
   const context = useContext(TableContext);
@@ -27,6 +28,7 @@ export const Configurator = () => {
   return (
     <ConfiguratorContainer>
       {handleStep()}
+      <Options />
       <Progress />
       <Navigation />
     </ConfiguratorContainer>

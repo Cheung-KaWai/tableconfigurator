@@ -1,10 +1,11 @@
-import { ContactShadows, Environment, OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { Environment, OrbitControls, PerspectiveCamera, Preload } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import React from "react";
 import { SceneContainer } from "../layouts/SceneContainer";
 import { Table } from "./Table";
 import { Legs } from "./Legs";
 import { Sizes } from "./Sizes";
+import { Shadows } from "./Shadows";
 
 export const Scene = () => {
   return (
@@ -16,8 +17,7 @@ export const Scene = () => {
         <Table />
         <Legs />
         <Sizes />
-        <ContactShadows frames={Infinity} position={[0, 0, 0]} opacity={0.5} scale={10} blur={3} far={1.5} />
-        <ContactShadows frames={Infinity} position={[0, 0, 0]} opacity={1} scale={[3, 4]} blur={1} far={0.3} />
+        <Shadows />
       </Canvas>
     </SceneContainer>
   );

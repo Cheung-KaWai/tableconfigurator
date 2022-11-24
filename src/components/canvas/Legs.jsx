@@ -4,6 +4,7 @@ import { textures } from "../../assets/js/textures";
 import { TableContext } from "../../context/TableContextProvider";
 import { Leg1 } from "../models/legs/Leg1";
 import { Leg2 } from "../models/legs/Leg2";
+import { useSpring } from "@react-spring/three";
 
 export const Legs = () => {
   const context = useContext(TableContext);

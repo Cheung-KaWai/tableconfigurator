@@ -15,6 +15,7 @@ export const TableContextProvider = ({ children }) => {
   const [legTexture, setLegTexture] = useState("Metal1");
 
   const [showSize, setShowSize] = useState(true);
+  const [seperate, setSeperate] = useState(false);
 
   const [step, setStep] = useState(1);
 
@@ -37,6 +38,8 @@ export const TableContextProvider = ({ children }) => {
     currentEdge,
     showSize,
     setShowSize,
+    setSeperate,
+    seperate,
   };
 
   return <TableContext.Provider value={elements}>{children}</TableContext.Provider>;

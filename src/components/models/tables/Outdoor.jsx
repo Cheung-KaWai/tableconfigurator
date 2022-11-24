@@ -1,18 +1,17 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import outdoor from "../../../assets/models/tables/outdoor.glb";
+import { animated } from "@react-spring/three";
 
-export function Outdoor({ material, width, length }) {
+export function Outdoor({ material, width, length, position }) {
   const { nodes, materials } = useGLTF(outdoor);
   return (
     <group dispose={null}>
-      <mesh
-        castShadow
-        receiveShadow
+      <animated.mesh
         geometry={nodes.Cube014.geometry}
         material={material}
         scale={[length, 1, width]}
-        position={[0, 0.81, 0]}
+        position={position}
       />
     </group>
   );

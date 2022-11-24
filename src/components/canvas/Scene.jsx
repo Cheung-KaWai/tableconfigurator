@@ -17,7 +17,7 @@ export const Scene = () => {
         <Legs />
         <Sizes />
         <ContactShadows frames={Infinity} position={[0, 0, 0]} opacity={0.5} scale={10} blur={3} far={1.5} />
-        <ContactShadows frames={Infinity} position={[0, 0, 0]} opacity={1} scale={2} blur={1} far={0.2} />
+        <ContactShadows frames={Infinity} position={[0, 0, 0]} opacity={1} scale={[3, 4]} blur={1} far={0.3} />
       </Canvas>
     </SceneContainer>
   );

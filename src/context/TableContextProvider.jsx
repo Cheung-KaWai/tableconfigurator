@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useRef, useState } from "react";
 import { textures } from "../assets/js/textures";
 
 export const TableContext = createContext();
@@ -16,6 +16,8 @@ export const TableContextProvider = ({ children }) => {
 
   const [showSize, setShowSize] = useState(true);
   const [seperate, setSeperate] = useState(false);
+
+  const testRef = useRef();
 
   const [step, setStep] = useState(1);
 
@@ -40,6 +42,7 @@ export const TableContextProvider = ({ children }) => {
     setShowSize,
     setSeperate,
     seperate,
+    testRef,
   };
 
   return <TableContext.Provider value={elements}>{children}</TableContext.Provider>;

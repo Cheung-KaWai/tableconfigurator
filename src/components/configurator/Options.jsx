@@ -2,9 +2,36 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { CiRuler, CiGrid42, CiBank } from "react-icons/ci";
 import { TableContext } from "../../context/TableContextProvider";
+import { GLTFExporter } from "../../../node_modules/three/examples/jsm/exporters/GLTFExporter";
 
 export const Options = () => {
   const context = useContext(TableContext);
+  const exporter = new GLTFExporter();
+  const link = document.createElement("a");
+
+  function saveArrayBuffer(buffer, filename) {
+    save(new Blob([buffer], { type: "application/octet-stream" }), filename);
+  }
+
+  function save(blob, filename) {
+    link.href = URL.createObjectURL(blob);
+    link.download = filename;
+    link.click();
+
+    // URL.revokeObjectURL( url ); breaks Firefox...
+  }
+
+  const handleExport = () => {
+    exporter.parse(
+      context.testRef.current,
+      (glb) => {
+        saveArrayBuffer(glb, "scene.glb");
+        console.log(context.testRef.current);
+        console.log(glb);
+      },
+      { binary: true }
+    );
+  };
 
   return (
     <Container>
@@ -14,7 +41,7 @@ export const Options = () => {
       <OptionContainer selected={context.seperate} onClick={() => context.setSeperate((prev) => !prev)}>
         <CiGrid42 size={32} />
       </OptionContainer>
-      <OptionContainer>
+      <OptionContainer onClick={handleExport}>
         <CiBank size={32} />
       </OptionContainer>
     </Container>

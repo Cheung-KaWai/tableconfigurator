@@ -38,12 +38,12 @@ export const TableMaterial = () => {
 const ImageTexture = styled.img`
   width: 7rem;
   height: 7rem;
-  border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 0 10px 5px rgba(66, 96, 122, ${(props) => (props.selected == true ? 0.3 : 0)});
+  outline: ${(props) => (props.selected === true ? "3px" : "0px")} solid #212529;
+  border-radius: 50%;
   transition: all 0.2s ease-out;
   &:hover {
-    box-shadow: 0 0 10px 5px rgba(66, 96, 122, 0.3);
+    outline-width: 3px;
   }
 `;
 

@@ -6,14 +6,12 @@ import { animated } from "@react-spring/three";
 export function Outdoor({ material, width, length, position }) {
   const { nodes, materials } = useGLTF(outdoor);
   return (
-    <group dispose={null}>
-      <animated.mesh
-        geometry={nodes.Cube014.geometry}
-        material={material}
-        scale={[length, 1, width]}
-        position={position}
-      />
-    </group>
+    <animated.mesh
+      geometry={nodes.Cube014.geometry}
+      material={material}
+      scale={[length, 1, width]}
+      position={position}
+    />
   );
 }
 

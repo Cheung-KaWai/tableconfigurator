@@ -5,17 +5,14 @@ import { animated } from "@react-spring/three";
 
 export function Square1({ material, width, length, position }) {
   const { nodes } = useGLTF(square1);
-
   // [length, 1, width]
   return (
-    <group dispose={null}>
-      <animated.mesh
-        geometry={nodes.Cube007.geometry}
-        material={material}
-        scale={[length, 1, width]}
-        position={position}
-      />
-    </group>
+    <animated.mesh
+      geometry={nodes.Cube007.geometry}
+      material={material}
+      scale={[length, 1, width]}
+      position={position}
+    />
   );
 }
 

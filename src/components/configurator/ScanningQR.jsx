@@ -35,7 +35,7 @@ export const ScanningQR = () => {
             <QRCode
               size={256}
               style={{ height: "auto", width: "50%", height: "auto" }}
-              value={""}
+              value={"https://tableconfigurator-cheung-kawai.vercel.app"}
               viewBox={`0 0 256 256`}
             />
             <QrDescription>Scan the QR Code to view the table in augmented reality</QrDescription>

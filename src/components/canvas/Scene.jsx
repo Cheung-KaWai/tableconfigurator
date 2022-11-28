@@ -27,7 +27,7 @@ export const Scene = () => {
           <Shadows />
         </Suspense>
       </Canvas>
-      <Loader />
+      {/* <Loader /> */}
     </SceneContainer>
   );
 };

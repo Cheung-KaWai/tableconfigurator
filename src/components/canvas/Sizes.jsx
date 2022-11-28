@@ -1,5 +1,5 @@
 import { Center, Text3D } from "@react-three/drei";
-import React, { useContext } from "react";
+import React, { Suspense, useContext } from "react";
 import font from "../../assets/fonts/Inter_Bold.json";
 import { TableContext } from "../../context/TableContextProvider";
 
@@ -11,7 +11,7 @@ export const Sizes = () => {
   return (
     <>
       {context.showSize && (
-        <>
+        <Suspense fallback={null}>
           <Center position={[0, 0.85, -width / 2 - 0.05]} rotation={[0, 0, 0]}>
             <Text3D scale={0.05} font={font}>
               {length * 100 + "cm"}
@@ -30,7 +30,7 @@ export const Sizes = () => {
               <meshStandardMaterial color="#fff" envMapIntensity={0.3} />
             </Text3D>
           </Center>
-        </>
+        </Suspense>
       )}
     </>
   );

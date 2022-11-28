@@ -21,6 +21,10 @@ export const TableContextProvider = ({ children }) => {
 
   const [step, setStep] = useState(1);
 
+  const [loading, setLoading] = useState(false);
+  const [complete, setComplete] = useState(false);
+  const [url, setUrl] = useState(null);
+
   const elements = {
     width,
     setWidth,
@@ -43,6 +47,12 @@ export const TableContextProvider = ({ children }) => {
     setSeperate,
     seperate,
     testRef,
+    setLoading,
+    loading,
+    complete,
+    setComplete,
+    setUrl,
+    url,
   };
 
   return <TableContext.Provider value={elements}>{children}</TableContext.Provider>;

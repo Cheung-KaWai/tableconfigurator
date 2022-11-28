@@ -3,14 +3,18 @@ import styled from "styled-components";
 import { CiRuler, CiGrid42, CiBank } from "react-icons/ci";
 import { TableContext } from "../../context/TableContextProvider";
 import { GLTFExporter } from "../../../node_modules/three/examples/jsm/exporters/GLTFExporter";
+import { addData } from "../../lib/firebase";
 
 export const Options = () => {
   const context = useContext(TableContext);
   const exporter = new GLTFExporter();
 
-  function saveArrayBuffer(buffer) {
+  async function saveArrayBuffer(buffer) {
+    console.log(buffer);
     const data = new Blob([buffer], { type: "application/octet-stream" });
-    console.log(data);
+    await addData(data);
+    console.log("laatste");
+    context.setLoading(false);
   }
 
   // function save(blob, filename) {
@@ -23,6 +27,7 @@ export const Options = () => {
   // }
 
   const handleExport = () => {
+    context.setLoading(true);
     exporter.parse(
       [context.testRef.current],
       (glb) => {

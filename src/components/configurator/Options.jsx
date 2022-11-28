@@ -10,10 +10,8 @@ export const Options = () => {
   const exporter = new GLTFExporter();
 
   async function saveArrayBuffer(buffer) {
-    console.log(buffer);
     const data = new Blob([buffer], { type: "application/octet-stream" });
     await addData(data);
-    console.log("laatste");
     context.setComplete(true);
   }
 
@@ -27,13 +25,15 @@ export const Options = () => {
   // }
 
   const handleExport = () => {
+    context.setSeperate(false);
     context.setLoading(true);
     context.setComplete(false);
 
     setTimeout(() => {
       exporter.parse(
-        [context.testRef.current],
+        context.testRef.current,
         (glb) => {
+          context.setLoadingPhase("Generating QR Code...");
           saveArrayBuffer(glb);
         },
         (err) => {
@@ -41,7 +41,7 @@ export const Options = () => {
         },
         { binary: true }
       );
-    }, 200);
+    }, 1000);
   };
 
   return (

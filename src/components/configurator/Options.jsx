@@ -7,27 +7,29 @@ import { GLTFExporter } from "../../../node_modules/three/examples/jsm/exporters
 export const Options = () => {
   const context = useContext(TableContext);
   const exporter = new GLTFExporter();
-  const link = document.createElement("a");
 
-  function saveArrayBuffer(buffer, filename) {
-    save(new Blob([buffer], { type: "application/octet-stream" }), filename);
+  function saveArrayBuffer(buffer) {
+    const data = new Blob([buffer], { type: "application/octet-stream" });
+    console.log(data);
   }
 
-  function save(blob, filename) {
-    link.href = URL.createObjectURL(blob);
-    link.download = filename;
-    link.click();
+  // function save(blob, filename) {
+  //   const link = document.createElement("a");
+  //   link.href = URL.createObjectURL(blob);
+  //   link.download = filename;
+  //   link.click();
 
-    // URL.revokeObjectURL( url ); breaks Firefox...
-  }
+  //   // URL.revokeObjectURL( url ); breaks Firefox...
+  // }
 
   const handleExport = () => {
     exporter.parse(
-      context.testRef.current,
+      [context.testRef.current],
       (glb) => {
-        saveArrayBuffer(glb, "scene.glb");
-        console.log(context.testRef.current);
-        console.log(glb);
+        saveArrayBuffer(glb);
+      },
+      (err) => {
+        console.log(err);
       },
       { binary: true }
     );

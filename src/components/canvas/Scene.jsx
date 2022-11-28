@@ -17,8 +17,10 @@ export const Scene = () => {
         <OrbitControls makeDefault />
         <PerspectiveCamera position={[0.75, 2.75, 2]} makeDefault />
         <Environment preset="city" />
-        <Table />
-        <Legs />
+        <group ref={context.testRef}>
+          <Table />
+          <Legs />
+        </group>
         <Sizes />
         <Shadows />
       </Canvas>

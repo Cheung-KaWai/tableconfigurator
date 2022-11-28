@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import square1 from "../../../assets/models/tables/square1.glb";
 import { animated } from "@react-spring/three";
+import { TableContext } from "../../../context/TableContextProvider";
 
 export function Square1({ material, width, length, position }) {
   const { nodes } = useGLTF(square1);

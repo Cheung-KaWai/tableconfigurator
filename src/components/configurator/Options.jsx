@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { CiRuler, CiGrid42, CiBank } from "react-icons/ci";
+import { CiRuler, CiGrid42, CiBank, CiMobile4 } from "react-icons/ci";
 import { TableContext } from "../../context/TableContextProvider";
 import { GLTFExporter } from "../../../node_modules/three/examples/jsm/exporters/GLTFExporter";
 import { addData } from "../../lib/firebase";
@@ -46,14 +46,22 @@ export const Options = () => {
 
   return (
     <Container>
-      <OptionContainer selected={context.showSize} onClick={() => context.setShowSize((prev) => !prev)}>
+      <OptionContainer
+        selected={context.showSize}
+        onClick={() => context.setShowSize((prev) => !prev)}
+        icon={"Show sizes"}
+      >
         <CiRuler size={32} />
       </OptionContainer>
-      <OptionContainer selected={context.seperate} onClick={() => context.setSeperate((prev) => !prev)}>
+      <OptionContainer
+        selected={context.seperate}
+        onClick={() => context.setSeperate((prev) => !prev)}
+        icon={"Seperate parts"}
+      >
         <CiGrid42 size={32} />
       </OptionContainer>
-      <OptionContainer onClick={handleExport}>
-        <CiBank size={32} />
+      <OptionContainer onClick={handleExport} icon={"View in AR"}>
+        <CiMobile4 size={32} />
       </OptionContainer>
     </Container>
   );
@@ -81,4 +89,20 @@ const OptionContainer = styled.div`
   height: 5rem;
 
   cursor: pointer;
+
+  &:hover::after {
+    opacity: 1;
+  }
+
+  &::after {
+    content: "${(props) => props.icon}";
+    width: 12rem;
+    display: block;
+    position: absolute;
+    right: 5px;
+    padding: 1.5rem;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.3s ease-out;
+  }
 `;

@@ -8,6 +8,7 @@ import { Navigation } from "./Navigation";
 import { TableMaterial } from "./TableMaterial";
 import { Progress } from "./Progress";
 import { Options } from "./Options";
+import { ScanningQR } from "./ScanningQR";
 
 export const Configurator = () => {
   const context = useContext(TableContext);
@@ -31,6 +32,7 @@ export const Configurator = () => {
       <Options />
       <Progress />
       <Navigation />
+      {context.loading && <ScanningQR />}
     </ConfiguratorContainer>
   );
 };

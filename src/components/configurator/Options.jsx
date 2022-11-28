@@ -14,7 +14,7 @@ export const Options = () => {
     const data = new Blob([buffer], { type: "application/octet-stream" });
     await addData(data);
     console.log("laatste");
-    context.setLoading(false);
+    context.setComplete(true);
   }
 
   // function save(blob, filename) {
@@ -28,16 +28,20 @@ export const Options = () => {
 
   const handleExport = () => {
     context.setLoading(true);
-    exporter.parse(
-      [context.testRef.current],
-      (glb) => {
-        saveArrayBuffer(glb);
-      },
-      (err) => {
-        console.log(err);
-      },
-      { binary: true }
-    );
+    context.setComplete(false);
+
+    setTimeout(() => {
+      exporter.parse(
+        [context.testRef.current],
+        (glb) => {
+          saveArrayBuffer(glb);
+        },
+        (err) => {
+          console.log(err);
+        },
+        { binary: true }
+      );
+    }, 200);
   };
 
   return (

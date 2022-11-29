@@ -44,7 +44,13 @@ export const ScanningQR = () => {
               value={`https://tableconfigurator-cheung-kawai.vercel.app/ar/${context.url}`}
               viewBox={`0 0 256 256`}
             />
-            <QrDescription>Scan the QR Code to view the table in augmented reality</QrDescription>
+            <TextContainer>
+              <QrDescription>Scan the QR Code to view the table in augmented reality</QrDescription>
+              <Disclaimer>
+                ONLY close this modal when you're done viewing the AR. Closing it will delete the model from our
+                database and AR won't work anymore
+              </Disclaimer>
+            </TextContainer>
             <ExitButton onClick={handleExit} />
           </>
         )}
@@ -85,7 +91,6 @@ const Loader = styled.p`
 `;
 
 const QrDescription = styled.p`
-  padding: 0 2rem;
   text-align: center;
   font-weight: 600;
 `;
@@ -108,4 +113,12 @@ const LoadingContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+const TextContainer = styled.div`
+  padding: 0 2rem;
+`;
+const Disclaimer = styled.p`
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 1rem;
 `;

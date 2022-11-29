@@ -28,13 +28,13 @@ export const ArView = () => {
         <model-viewer
           src={glb}
           ar
-          ar-modes="webxr scene-viewer quick-look"
+          ar-modes="scene-viewer quick-look"
           camera-controls
           shadow-intensity="0"
           exposure="0.3"
           shadow-softness="1"
         >
-          <StartButton slot="ar-button">Start</StartButton>
+          <StartButton slot="ar-button">AR Mode</StartButton>
         </model-viewer>
       )}
       {error && <p>{error}</p>}
@@ -44,6 +44,14 @@ export const ArView = () => {
 
 const StartButton = styled.button`
   position: absolute;
-  top: 0;
-  left: 0;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border: none;
+  background-color: transparent;
+  padding: 1rem 2.5rem;
+  color: #42607a;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 1px;
 `;

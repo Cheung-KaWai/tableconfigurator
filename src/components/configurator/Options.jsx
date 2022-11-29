@@ -14,6 +14,7 @@ export const Options = () => {
     const id = await addData(data);
     context.setUrl(id);
     context.setComplete(true);
+    context.setShowLoadingAnimation(false);
   }
 
   // function save(blob, filename) {
@@ -35,6 +36,7 @@ export const Options = () => {
         context.testRef.current,
         (glb) => {
           context.setLoadingPhase("Generating QR Code...");
+          context.setShowLoadingAnimation(true);
           saveArrayBuffer(glb);
         },
         (err) => {

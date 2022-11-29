@@ -19,15 +19,17 @@ export const ScanningQR = () => {
         {!context.complete && (
           <LoadingContainer>
             <Loader>{context.loadingPhase}</Loader>
-            <MutatingDots
-              height="100"
-              width="100"
-              color="#42607a"
-              secondaryColor="#42607a"
-              radius="12.5"
-              ariaLabel="mutating-dots-loading"
-              visible={true}
-            />
+            {context.showLoadingAnimation && (
+              <MutatingDots
+                height="100"
+                width="100"
+                color="#42607a"
+                secondaryColor="#42607a"
+                radius="12.5"
+                ariaLabel="mutating-dots-loading"
+                visible={true}
+              />
+            )}
           </LoadingContainer>
         )}
         {context.complete && (

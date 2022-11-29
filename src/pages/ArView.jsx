@@ -11,7 +11,7 @@ export const ArView = () => {
   useEffect(() => {
     try {
       getModel(id).then((model) => {
-        setGlb(glb);
+        setGlb(model);
         setLoadingDone(true);
         setError(null);
         console.log(model);

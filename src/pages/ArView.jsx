@@ -44,7 +44,7 @@ export const ArView = () => {
 
 const StartButton = styled.button`
   position: absolute;
-  bottom: 1rem;
+  bottom: 10rem;
   left: 50%;
   transform: translateX(-50%);
   border: none;

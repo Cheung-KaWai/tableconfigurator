@@ -17,18 +17,18 @@ export const LegsMaterial = () => {
       <ImageContainers>
         <ImageTexture
           src={textures.previews.metal1}
-          selected={context.legTexture === "Metal1"}
-          onClick={() => handleTexture("Metal1")}
+          selected={context.legTexture === "metal1"}
+          onClick={() => handleTexture("metal1")}
         />
         <ImageTexture
           src={textures.previews.metal2}
-          selected={context.legTexture === "Metal2"}
-          onClick={() => handleTexture("Metal2")}
+          selected={context.legTexture === "metal2"}
+          onClick={() => handleTexture("metal2")}
         />
         <ImageTexture
           src={textures.previews.metal3}
-          selected={context.legTexture === "Metal3"}
-          onClick={() => handleTexture("Metal3")}
+          selected={context.legTexture === "metal3"}
+          onClick={() => handleTexture("metal3")}
         />
       </ImageContainers>
     </>

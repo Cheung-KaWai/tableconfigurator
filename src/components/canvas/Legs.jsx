@@ -14,8 +14,17 @@ export const Legs = () => {
   const currentLeg = context.currentLeg;
   const currentLegTexture = context.legTexture;
 
-  const params = textures[currentLegTexture];
-  const material = new MeshStandardMaterial(params(width, length));
+  const metal1 = new MeshStandardMaterial(textures["Metal1"](width, length));
+  const metal2 = new MeshStandardMaterial(textures["Metal2"](width, length));
+  const metal3 = new MeshStandardMaterial(textures["Metal3"](width, length));
+
+  const loadedTextures = {
+    metal1,
+    metal2,
+    metal3,
+  };
+
+  const material = loadedTextures[currentLegTexture];
 
   switch (currentLeg) {
     case "leg1":

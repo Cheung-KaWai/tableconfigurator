@@ -17,18 +17,18 @@ export const TableMaterial = () => {
       <ImageContainers>
         <ImageTexture
           src={textures.previews.wood1}
-          selected={context.tableTexture === "Wood1"}
-          onClick={() => handleTexture("Wood1")}
+          selected={context.tableTexture === "wood1"}
+          onClick={() => handleTexture("wood1")}
         />
         <ImageTexture
           src={textures.previews.wood2}
-          selected={context.tableTexture === "Wood2"}
-          onClick={() => handleTexture("Wood2")}
+          selected={context.tableTexture === "wood2"}
+          onClick={() => handleTexture("wood2")}
         />
         <ImageTexture
           src={textures.previews.wood3}
-          selected={context.tableTexture === "Wood3"}
-          onClick={() => handleTexture("Wood3")}
+          selected={context.tableTexture === "wood3"}
+          onClick={() => handleTexture("wood3")}
         />
       </ImageContainers>
     </>

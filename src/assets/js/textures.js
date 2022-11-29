@@ -35,7 +35,17 @@ import metalness6 from "../textures/legs/metal3/Metal011_2K_Metalness.jpg";
 import preview6 from "../textures/legs/metal3/Metal011_PREVIEW.jpg";
 
 import { useTexture } from "@react-three/drei";
-import { RepeatWrapping, sRGBEncoding } from "three";
+import { RepeatWrapping, sRGBEncoding, MeshStandardMaterial } from "three";
+
+export const testTextures = () => {
+  const woodTest = {
+    map: map2,
+    normalMap: normal2,
+    roughnessMap: roughness2,
+  };
+
+  return woodTest;
+};
 
 const fixTexture = (texture, width, height) => {
   texture.flipY = false;
@@ -58,7 +68,7 @@ const Wood1 = (width, height) => {
     roughnessMap,
   };
 
-  return wood;
+  return new MeshStandardMaterial(wood);
 };
 
 const Wood2 = (width, height) => {
@@ -73,7 +83,7 @@ const Wood2 = (width, height) => {
     roughnessMap,
   };
 
-  return wood;
+  return new MeshStandardMaterial(wood);
 };
 
 const Wood3 = (width, height) => {
@@ -88,7 +98,7 @@ const Wood3 = (width, height) => {
     roughnessMap,
   };
 
-  return wood;
+  return new MeshStandardMaterial(wood);
 };
 
 const Metal1 = (width, height) => {

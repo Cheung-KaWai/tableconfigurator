@@ -9,10 +9,10 @@ export const TableContextProvider = ({ children }) => {
 
   const [currentTable, setcurrentTable] = useState("square");
   const [currentEdge, setCurrentEdge] = useState("edge1");
-  const [tableTexture, setTableTexture] = useState("Wood1");
+  const [tableTexture, setTableTexture] = useState("wood1");
 
   const [currentLeg, setCurrentLeg] = useState("leg1");
-  const [legTexture, setLegTexture] = useState("Metal1");
+  const [legTexture, setLegTexture] = useState("metal1");
 
   const [showSize, setShowSize] = useState(false);
   const [seperate, setSeperate] = useState(false);

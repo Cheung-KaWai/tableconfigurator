@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getModel } from "../lib/firebase";
+import square1 from "../assets/models/tables/square1.glb";
 
 export const ArView = () => {
   const { id } = useParams();
@@ -16,11 +17,12 @@ export const ArView = () => {
         //   console.log(test);
         //   console.log(model);
         // });
-        const test = new File([model], "table.glb");
-        console.log(test);
-        setGlb(test);
-        setLoadingDone(true);
-        setError(null);
+        // const test = new File([model], "table.glb");
+        // console.log(test);
+        // setGlb(test);
+        // setLoadingDone(true);
+        // setError(null);
+        console.log(square1);
       });
     } catch (err) {
       setError(err?.message);
@@ -30,7 +32,7 @@ export const ArView = () => {
   return (
     <>
       {loadingDone && (
-        <model-viewer alt="table" src={glb} camera-controls touch-action="pan-y" exposure="0.2"></model-viewer>
+        <model-viewer alt="table" src={square1} camera-controls touch-action="pan-y" exposure="0.2"></model-viewer>
       )}
       {error && <p>{error}</p>}
     </>

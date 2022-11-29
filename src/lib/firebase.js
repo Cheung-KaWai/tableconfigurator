@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { doc, collection, getFirestore, addDoc } from "firebase/firestore";
-import { ref, getStorage, uploadBytes, getDownloadURL, getBlob } from "firebase/storage";
+import { ref, getStorage, uploadBytes, getDownloadURL, getBlob, deleteObject } from "firebase/storage";
 import { v4 as uuidv4 } from "uuid";
 
 const firebaseConfig = {
@@ -37,5 +37,13 @@ export const getModel = async (id) => {
     return model;
   } catch (err) {
     console.log(err);
+  }
+};
+
+export const deleteModel = async (id) => {
+  try {
+    await deleteObject(ref(storage, id));
+  } catch (err) {
+    console.log(err.message);
   }
 };

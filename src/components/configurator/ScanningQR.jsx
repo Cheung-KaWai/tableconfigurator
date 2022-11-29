@@ -4,6 +4,7 @@ import QRCode from "react-qr-code";
 import { TableContext } from "../../context/TableContextProvider";
 import { IoCloseOutline } from "react-icons/io5";
 import { MutatingDots } from "react-loader-spinner";
+import { deleteModel } from "../../lib/firebase";
 
 export const ScanningQR = () => {
   const context = useContext(TableContext);
@@ -11,6 +12,9 @@ export const ScanningQR = () => {
     context.setLoading(false);
     context.setUrl(null);
     context.setComplete(false);
+    context.setLoadingPhase("Exporting Model...");
+    deleteModel(context.url);
+    context.setUrl(null);
   };
 
   return (

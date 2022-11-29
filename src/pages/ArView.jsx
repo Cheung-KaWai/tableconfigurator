@@ -33,9 +33,17 @@ export const ArView = () => {
           shadow-intensity="0"
           exposure="0.3"
           shadow-softness="1"
-        ></model-viewer>
+        >
+          <StartButton slot="ar-button">Start</StartButton>
+        </model-viewer>
       )}
       {error && <p>{error}</p>}
     </>
   );
 };
+
+const StartButton = styled.button`
+  position: absolute;
+  top: 0;
+  left: 0;
+`;

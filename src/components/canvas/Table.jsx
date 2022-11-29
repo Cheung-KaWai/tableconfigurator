@@ -30,6 +30,10 @@ export const Table = () => {
 
   const material = loadedTextures[currentTexture];
 
+  useEffect(() => {
+    context.setLoadingScreen(false);
+  }, []);
+
   const { position } = useSpring({ position: context.seperate ? [0, 1.2, 0] : [0, 0.81, 0], config: config.gentle });
 
   switch (currentTable) {

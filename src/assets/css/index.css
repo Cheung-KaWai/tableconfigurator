@@ -23,3 +23,7 @@ model-viewer {
   width: 100vw;
   height: 100vh;
 }
+
+.test {
+  background-color: red;
+}

@@ -1,4 +1,4 @@
-import { Environment, Loader, OrbitControls, PerspectiveCamera, Preload } from "@react-three/drei";
+import { Environment, OrbitControls, PerspectiveCamera, useProgress, Html } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import React, { Suspense, useContext, useRef } from "react";
 import { SceneContainer } from "../layouts/SceneContainer";
@@ -8,6 +8,17 @@ import { Sizes } from "./Sizes";
 import { Shadows } from "./Shadows";
 import { TableContext } from "../../context/TableContextProvider";
 import { LoaderProgress } from "../configurator/LoaderProgress";
+import { LoadingScreen } from "./LoadingScreen";
+
+function Loader() {
+  const { active, progress, errors, item, loaded, total } = useProgress();
+
+  return (
+    <Html center wrapperClass="test">
+      {progress.toFixed(2)} % loaded
+    </Html>
+  );
+}
 
 export const Scene = () => {
   const context = useContext(TableContext);
@@ -27,7 +38,7 @@ export const Scene = () => {
           <Shadows />
         </Suspense>
       </Canvas>
-      {/* <Loader /> */}
+      <LoadingScreen />
     </SceneContainer>
   );
 };

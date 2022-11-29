@@ -26,6 +26,7 @@ export const TableContextProvider = ({ children }) => {
   const [url, setUrl] = useState(null);
   const [loadingPhase, setLoadingPhase] = useState("Exporting model...");
   const [showLoadingAnimation, setShowLoadingAnimation] = useState(false);
+  const [loadingScreen, setLoadingScreen] = useState(true);
 
   const elements = {
     width,
@@ -59,6 +60,8 @@ export const TableContextProvider = ({ children }) => {
     loadingPhase,
     setShowLoadingAnimation,
     showLoadingAnimation,
+    setLoadingScreen,
+    loadingScreen,
   };
 
   return <TableContext.Provider value={elements}>{children}</TableContext.Provider>;

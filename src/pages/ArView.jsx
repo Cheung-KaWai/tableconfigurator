@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import styled from "styled-components";
 import { getModel } from "../lib/firebase";
 
 export const ArView = () => {
@@ -32,7 +33,6 @@ export const ArView = () => {
           shadow-intensity="0"
           exposure="0.61"
           shadow-softness="1"
-          environment-image="whipple_creek_regional_park_04_1k.hdr"
         ></model-viewer>
       )}
       {error && <p>{error}</p>}

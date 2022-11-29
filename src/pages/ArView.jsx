@@ -6,13 +6,19 @@ export const ArView = () => {
   const { id } = useParams();
   const [glb, setGlb] = useState(null);
   const [loadingDone, setLoadingDone] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getModel(id).then((model) => {
-      setGlb(glb);
-      setLoadingDone(true);
-      console.log(model);
-    });
+    try {
+      getModel(id).then((model) => {
+        setGlb(glb);
+        setLoadingDone(true);
+        setError(null);
+        console.log(model);
+      });
+    } catch (err) {
+      setError(err?.message);
+    }
   }, []);
 
   return (
@@ -30,6 +36,7 @@ export const ArView = () => {
           environment-image="whipple_creek_regional_park_04_1k.hdr"
         ></model-viewer>
       )}
+      {error && <p>{error}</p>}
     </>
   );
 };

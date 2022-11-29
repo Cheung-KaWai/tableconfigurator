@@ -33,7 +33,7 @@ export const addData = async (blob) => {
 
 export const getModel = async (id) => {
   try {
-    const model = await getBlob(ref(storage, id));
+    const model = await getDownloadURL(ref(storage, id));
     return model;
   } catch (err) {
     console.log(err);

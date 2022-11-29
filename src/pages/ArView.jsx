@@ -12,7 +12,7 @@ export const ArView = () => {
   useEffect(() => {
     try {
       getModel(id).then((model) => {
-        // setGlb(model);
+        setGlb(model);
         // fetch(model).then((test) => {
         //   console.log(test);
         //   console.log(model);
@@ -20,9 +20,8 @@ export const ArView = () => {
         // const test = new File([model], "table.glb");
         // console.log(test);
         // setGlb(test);
-        // setLoadingDone(true);
-        // setError(null);
-        console.log(square1);
+        setLoadingDone(true);
+        setError(null);
       });
     } catch (err) {
       setError(err?.message);
@@ -31,7 +30,9 @@ export const ArView = () => {
 
   return (
     <>
-      <model-viewer alt="table" src={square1} camera-controls touch-action="pan-y" exposure="0.2"></model-viewer>
+      {loadingDone && (
+        <model-viewer alt="table" src={glb} camera-controls touch-action="pan-y" exposure="0.2"></model-viewer>
+      )}
       {error && <p>{error}</p>}
     </>
   );

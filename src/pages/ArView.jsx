@@ -31,9 +31,7 @@ export const ArView = () => {
 
   return (
     <>
-      {loadingDone && (
-        <model-viewer alt="table" src={square1} camera-controls touch-action="pan-y" exposure="0.2"></model-viewer>
-      )}
+      <model-viewer alt="table" src={square1} camera-controls touch-action="pan-y" exposure="0.2"></model-viewer>
       {error && <p>{error}</p>}
     </>
   );

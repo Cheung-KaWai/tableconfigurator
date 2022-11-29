@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { doc, collection, getFirestore, addDoc } from "firebase/firestore";
-import { ref, getStorage, uploadBytes, getDownloadURL } from "firebase/storage";
+import { ref, getStorage, uploadBytes, getDownloadURL, getBlob } from "firebase/storage";
 import { v4 as uuidv4 } from "uuid";
 
 const firebaseConfig = {
@@ -33,7 +33,7 @@ export const addData = async (blob) => {
 
 export const getModel = async (id) => {
   try {
-    const model = await getDownloadURL(ref(storage, id));
+    const model = await getBlob(ref(storage, id));
     return model;
   } catch (err) {
     console.log(err);

@@ -11,7 +11,8 @@ export const Options = () => {
 
   async function saveArrayBuffer(buffer) {
     const data = new Blob([buffer], { type: "application/octet-stream" });
-    await addData(data);
+    const id = await addData(data);
+    context.setUrl(id);
     context.setComplete(true);
   }
 

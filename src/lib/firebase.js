@@ -25,7 +25,7 @@ export const addData = async (blob) => {
     id += ".glb";
     const storageRef = ref(storage, id);
     await uploadBytes(storageRef, blob);
-    console.log("yeah");
+    return id;
   } catch (err) {
     console.log(err);
   }

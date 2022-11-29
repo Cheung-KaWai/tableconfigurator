@@ -28,10 +28,10 @@ export const ArView = () => {
         <model-viewer
           src={glb}
           ar
-          ar-modes="scene-viewer quick-look"
+          ar-modes="webxr scene-viewer quick-look"
           camera-controls
           shadow-intensity="0"
-          exposure="0.61"
+          exposure="0.3"
           shadow-softness="1"
         ></model-viewer>
       )}

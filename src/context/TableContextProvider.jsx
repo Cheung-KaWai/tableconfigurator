@@ -12,7 +12,7 @@ export const TableContextProvider = ({ children }) => {
   const [tableTexture, setTableTexture] = useState("wood1");
 
   const [currentLeg, setCurrentLeg] = useState("leg1");
-  const [legTexture, setLegTexture] = useState("metal1");
+  const [legTexture, setLegTexture] = useState("metal3");
 
   const [showSize, setShowSize] = useState(false);
   const [seperate, setSeperate] = useState(false);

@@ -21,7 +21,7 @@ export const TableContextProvider = ({ children }) => {
   const cameraRef = useRef();
   const orbitRef = useRef();
 
-  const [camPosition, setCamPosition] = useState([-2.36, 2.59, 0.91]);
+  const [camPosition, setCamPosition] = useState([0, 2, 2]);
   const [camRotation, setCamRotation] = useState([-1.23, -0.71, -1.07]);
   const [disableLerp, setDisableLerp] = useState(false);
 

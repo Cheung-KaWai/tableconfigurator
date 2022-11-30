@@ -9,7 +9,7 @@ export function Square1({ material, width, length, position }) {
   // [length, 1, width]
   return (
     <animated.mesh
-      geometry={nodes.Cube007.geometry}
+      geometry={nodes.Square1.geometry}
       material={material}
       scale={[length, 1, width]}
       position={position}

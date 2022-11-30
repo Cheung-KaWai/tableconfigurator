@@ -17,15 +17,6 @@ export const Options = () => {
     context.setShowLoadingAnimation(false);
   }
 
-  // function save(blob, filename) {
-  //   const link = document.createElement("a");
-  //   link.href = URL.createObjectURL(blob);
-  //   link.download = filename;
-  //   link.click();
-
-  //   // URL.revokeObjectURL( url ); breaks Firefox...
-  // }
-
   const handleExport = () => {
     context.setSeperate(false);
     context.setLoading(true);

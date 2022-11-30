@@ -1,15 +1,26 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
+import { positions } from "../../assets/js/cameraPositions";
 import { TableContext } from "../../context/TableContextProvider";
 
 export const Navigation = () => {
   const context = useContext(TableContext);
 
   const handlePrevious = () => {
-    context.setStep((prev) => prev - 1);
+    context.setStep((prev) => {
+      const step = prev - 1;
+      context.setCamPosition(positions[step]);
+      context.setDisableLerp(false);
+      return step;
+    });
   };
   const handleNext = () => {
-    context.setStep((prev) => prev + 1);
+    context.setStep((prev) => {
+      const step = prev + 1;
+      context.setCamPosition(positions[step]);
+      context.setDisableLerp(false);
+      return step;
+    });
   };
 
   return (

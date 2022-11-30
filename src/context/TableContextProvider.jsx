@@ -18,6 +18,12 @@ export const TableContextProvider = ({ children }) => {
   const [seperate, setSeperate] = useState(false);
 
   const testRef = useRef();
+  const cameraRef = useRef();
+  const orbitRef = useRef();
+
+  const [camPosition, setCamPosition] = useState([-2.36, 2.59, 0.91]);
+  const [camRotation, setCamRotation] = useState([-1.23, -0.71, -1.07]);
+  const [disableLerp, setDisableLerp] = useState(false);
 
   const [step, setStep] = useState(1);
 
@@ -62,6 +68,14 @@ export const TableContextProvider = ({ children }) => {
     showLoadingAnimation,
     setLoadingScreen,
     loadingScreen,
+    cameraRef,
+    orbitRef,
+    setCamPosition,
+    camPosition,
+    setCamRotation,
+    camRotation,
+    setDisableLerp,
+    disableLerp,
   };
 
   return <TableContext.Provider value={elements}>{children}</TableContext.Provider>;

@@ -23,7 +23,7 @@ export const ArView = () => {
   }, []);
 
   return (
-    <>
+    <Container>
       {loadingDone && (
         <model-viewer
           src={glb}
@@ -38,7 +38,7 @@ export const ArView = () => {
         </model-viewer>
       )}
       {error && <p>{error}</p>}
-    </>
+    </Container>
   );
 };
 
@@ -54,4 +54,9 @@ const StartButton = styled.button`
   text-transform: uppercase;
   font-weight: 800;
   letter-spacing: 1px;
+`;
+
+const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
 `;

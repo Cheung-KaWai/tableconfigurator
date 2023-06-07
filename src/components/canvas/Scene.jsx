@@ -27,7 +27,22 @@ export const Scene = () => {
       >
         <Suspense fallback={null}>
           <Controls />
-          <Environment preset="city" />
+          <Environment
+            near={10}
+            far={200}
+            resolution={1024}
+            // files={[
+            //   "/assets/environment/px.png",
+            //   "/assets/environment/nx.png",
+            //   "/assets/environment/py.png",
+            //   "/assets/environment/ny.png",
+            //   "/assets/environment/pz.png",
+            //   "/assets/environment/nz.png"
+            // ]}
+            files={"/environment/potsdamer_platz_1k.hdr"}
+            name="environment"
+          />
+
           <group ref={context.testRef}>
             <Table />
             <Legs />

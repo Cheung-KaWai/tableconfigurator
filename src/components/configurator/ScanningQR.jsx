@@ -31,7 +31,7 @@ export const ScanningQR = () => {
         )}
         {context.complete && (
           <>
-            <QRCode size={256} style={{ height: "auto", width: "50%" }} value={`https://tableconfigurator-cheung-kawai.vercel.app/ar${urlParams}`} viewBox={`0 0 256 256`} />
+            <QRCode size={256} style={{ height: "auto", width: "50%" }} value={`https://tableconfigurator.vercel.app/ar${urlParams}`} viewBox={`0 0 256 256`} />
             <TextContainer>
               <QrDescription>Scan the QR Code to view the table in augmented reality</QrDescription>
               {/* <Disclaimer>ONLY close this modal when you're done viewing the AR. Closing it will delete the model from our database and AR won't work anymore</Disclaimer> */}

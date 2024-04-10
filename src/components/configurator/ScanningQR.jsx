@@ -16,6 +16,7 @@ export const ScanningQR = () => {
     // deleteModel(context.url);
     // context.setUrl(null);
   };
+  // http://192.168.0.158:3000/
   // https://tableconfigurator-cheung-kawai.vercel.app
   const urlParams = `?width=${context.width}&length=${context.length}&tableTexture=${context.tableTexture}&currentTable=${context.currentTable}&currentLeg=${context.currentLeg}&legTexture=${context.legTexture}&edge=${context.currentEdge}`;
   console.log(urlParams);

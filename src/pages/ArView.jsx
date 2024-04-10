@@ -40,7 +40,7 @@ export const ArView = () => {
     const url = URL.createObjectURL(blob);
     setGlb(url);
   }
-
+  console.log("heeey render render render");
   useEffect(() => {
     const params = new URLSearchParams(document.location.search);
     const width = params.get("width");
@@ -67,7 +67,7 @@ export const ArView = () => {
           context.setShowLoadingAnimation(true);
           saveArrayBuffer(glb);
           setLoadingDone(true);
-          console.log("hoi hoi");
+          console.log("hoi hoi", glb);
         },
         (err) => {
           console.log(err);

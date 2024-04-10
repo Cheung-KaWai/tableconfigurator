@@ -15,6 +15,7 @@ export const ArView = () => {
   const [error, setError] = useState(null);
   const context = useContext(TableContext);
   const exporter = new GLTFExporter();
+  const [getGlb, setGetGlb] = useState(false);
   // ?width=0.9&length=2&tableTexture=wood1&currentTable=square&currentLeg=leg1&legTexture=metal3&edge=edge1
 
   // async function saveArrayBuffer(buffer) {
@@ -58,24 +59,30 @@ export const ArView = () => {
     context.setCurrentLeg(currentLeg);
     context.setLegTexture(legTexture);
     context.setCurrentEdge(edge);
-
-    setTimeout(() => {
-      exporter.parse(
-        context.testRef.current,
-        (glb) => {
-          context.setLoadingPhase("Generating QR Code...");
-          context.setShowLoadingAnimation(true);
-          saveArrayBuffer(glb);
-          setLoadingDone(true);
-          console.log("hoi hoi", glb);
-        },
-        (err) => {
-          console.log(err);
-        },
-        { binary: true }
-      );
-    }, 1000);
+    setGetGlb(true);
   }, []);
+
+  useEffect(() => {
+    if (getGlb) {
+      setTimeout(() => {
+        exporter.parse(
+          context.testRef.current,
+          (glb) => {
+            context.setLoadingPhase("Generating QR Code...");
+            context.setShowLoadingAnimation(true);
+            saveArrayBuffer(glb);
+            setLoadingDone(true);
+            console.log("hoi hoi", glb);
+            setGetGlb(false);
+          },
+          (err) => {
+            console.log(err);
+          },
+          { binary: true }
+        );
+      }, 1000);
+    }
+  }, [getGlb]);
 
   return (
     <Container>

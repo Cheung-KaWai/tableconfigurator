@@ -13,43 +13,27 @@ export const ScanningQR = () => {
     context.setUrl(null);
     context.setComplete(false);
     context.setLoadingPhase("Exporting Model...");
-    deleteModel(context.url);
-    context.setUrl(null);
+    // deleteModel(context.url);
+    // context.setUrl(null);
   };
-
+  // https://tableconfigurator-cheung-kawai.vercel.app
+  const urlParams = `?width=${context.width}&length=${context.length}&tableTexture=${context.tableTexture}&currentTable=${context.currentTable}&currentLeg=${context.currentLeg}&legTexture=${context.legTexture}&edge=${context.currentEdge}`;
+  console.log(urlParams);
   return (
     <Container>
       <QRContainer>
         {!context.complete && (
           <LoadingContainer>
             <Loader>{context.loadingPhase}</Loader>
-            {context.showLoadingAnimation && (
-              <MutatingDots
-                height="100"
-                width="100"
-                color="#42607a"
-                secondaryColor="#42607a"
-                radius="12.5"
-                ariaLabel="mutating-dots-loading"
-                visible={true}
-              />
-            )}
+            {context.showLoadingAnimation && <MutatingDots height="100" width="100" color="#42607a" secondaryColor="#42607a" radius="12.5" ariaLabel="mutating-dots-loading" visible={true} />}
           </LoadingContainer>
         )}
         {context.complete && (
           <>
-            <QRCode
-              size={256}
-              style={{ height: "auto", width: "50%" }}
-              value={`https://tableconfigurator-cheung-kawai.vercel.app/ar/${context.url}`}
-              viewBox={`0 0 256 256`}
-            />
+            <QRCode size={256} style={{ height: "auto", width: "50%" }} value={`https://tableconfigurator-cheung-kawai.vercel.app/ar${urlParams}`} viewBox={`0 0 256 256`} />
             <TextContainer>
               <QrDescription>Scan the QR Code to view the table in augmented reality</QrDescription>
-              <Disclaimer>
-                ONLY close this modal when you're done viewing the AR. Closing it will delete the model from our
-                database and AR won't work anymore
-              </Disclaimer>
+              {/* <Disclaimer>ONLY close this modal when you're done viewing the AR. Closing it will delete the model from our database and AR won't work anymore</Disclaimer> */}
             </TextContainer>
             <ExitButton onClick={handleExit} />
           </>

@@ -20,38 +20,15 @@ export const Options = () => {
   const handleExport = () => {
     context.setSeperate(false);
     context.setLoading(true);
-    context.setComplete(false);
-
-    setTimeout(() => {
-      exporter.parse(
-        context.testRef.current,
-        (glb) => {
-          context.setLoadingPhase("Generating QR Code...");
-          context.setShowLoadingAnimation(true);
-          saveArrayBuffer(glb);
-        },
-        (err) => {
-          console.log(err);
-        },
-        { binary: true }
-      );
-    }, 1000);
+    context.setComplete(true);
   };
 
   return (
     <Container>
-      <OptionContainer
-        selected={context.showSize}
-        onClick={() => context.setShowSize((prev) => !prev)}
-        icon={"Show sizes"}
-      >
+      <OptionContainer selected={context.showSize} onClick={() => context.setShowSize((prev) => !prev)} icon={"Show sizes"}>
         <CiRuler size={32} />
       </OptionContainer>
-      <OptionContainer
-        selected={context.seperate}
-        onClick={() => context.setSeperate((prev) => !prev)}
-        icon={"Seperate parts"}
-      >
+      <OptionContainer selected={context.seperate} onClick={() => context.setSeperate((prev) => !prev)} icon={"Seperate parts"}>
         <CiGrid42 size={32} />
       </OptionContainer>
       <OptionContainer onClick={handleExport} icon={"View in AR"}>

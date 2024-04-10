@@ -8,7 +8,7 @@ export const RoutingPages = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" index element={<Home />} />
-        <Route path="/ar/:id" element={<ArView />} />
+        <Route path="/ar" element={<ArView />} />
       </Routes>
     </BrowserRouter>
   );
